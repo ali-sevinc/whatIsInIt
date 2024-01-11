@@ -5,3 +5,6 @@
 body {
   @apply bg-amber-50 min-h-screen font-signika;
 }
+td {
+  @apply border-2 border-amber-700 p-1 text-sm;
+}

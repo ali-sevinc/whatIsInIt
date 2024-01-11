@@ -3,7 +3,7 @@ import Search from "../products/Search";
 
 export default function Header() {
   return (
-    <header className="flex px-12 h-16 items-center justify-between bg-amber-200 text-amber-700">
+    <header className="flex flex-col gap-2 sm:flex-row px-12 sm:h-16 items-center justify-between bg-amber-200 text-amber-700">
       <Link to="/">
         <h1 className="text-3xl font-semibold">WhatIsInIt</h1>
       </Link>

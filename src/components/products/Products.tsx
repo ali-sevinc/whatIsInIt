@@ -1,12 +1,6 @@
 import { useParams } from "react-router-dom";
 import ProductsItem from "./ProductsItem";
 
-//"https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search" - api docs.
-
-//("https://world.openfoodfacts.org/api/v2/search?search_terms=chocolates&page=1&fields=code,product_name,image_front_small_url");
-
-//"https://world.openfoodfacts.org/api/v2/search?code=3017620422003"; //single product
-
 type PropsType = {
   products: {
     code: string;

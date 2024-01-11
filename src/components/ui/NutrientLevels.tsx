@@ -13,7 +13,7 @@ export default function NutrientLevels({
   sugars,
 }: PropsType) {
   return (
-    <ol className="flex gap-1 divide-x text-center mt-12 text-amber-50">
+    <ol className="flex gap-1 text-center text-amber-50">
       <NutrientItem title="Fat" level={fat} />
       <NutrientItem title="Salt" level={salt} />
       <NutrientItem title="Saturated Fat" level={saturatedFat} />
