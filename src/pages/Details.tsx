@@ -3,7 +3,9 @@ import {
   useLoaderData,
   useNavigation,
 } from "react-router-dom";
-import ProductDetail from "../components/products/ProductDetail";
+import ProductDetail, {
+  NutrimentsType,
+} from "../components/products/ProductDetail";
 import Loader from "../components/ui/Loader";
 
 type IngredientsType = {
@@ -26,6 +28,7 @@ type ProductType = {
   nutrient_levels: NutrientLevel;
   quantity: string;
   link: string;
+  nutriments: NutrimentsType;
 }[];
 export default function Details() {
   const { product } = useLoaderData() as { product: ProductType };

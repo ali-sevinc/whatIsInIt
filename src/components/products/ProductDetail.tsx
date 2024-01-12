@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Cart from "../ui/Cart";
+import Card from "../ui/Card";
 import NutrientLevels from "../ui/NutrientLevels";
 import NutitionTable from "./NutitionTable";
 
@@ -15,7 +15,7 @@ type NutrientLevel = {
   "saturated-fat": string;
   sugars: string;
 };
-type NutrimentsType = {
+export type NutrimentsType = {
   energy: number;
   "energy-kcal": number;
   "energy-kcal_100g": number;
@@ -50,9 +50,10 @@ export default function ProductDetail({ product }: PropsType) {
     const index = al.indexOf(":");
     return al.substring(index + 1);
   });
-  const link = product.link.startsWith("https://")
-    ? product.link
-    : "https://" + product.link;
+  const link =
+    product.link && product.link.startsWith("https://")
+      ? product.link
+      : "https://" + product.link;
 
   return (
     <div className="relative mx-auto mt-24 mb-12 flex flex-col items-center  gap-8   text-amber-700">
@@ -62,7 +63,7 @@ export default function ProductDetail({ product }: PropsType) {
       >
         &larr;Back
       </button>
-      <Cart>
+      <Card>
         <div className="flex flex-col md:flex-row gap-8 ">
           <img
             src={product.image_front_url}
@@ -83,12 +84,14 @@ export default function ProductDetail({ product }: PropsType) {
                 </span>
               ))}
             </p>
-            <p>
-              <span>Link: </span>
-              <a href={link} target="_blank">
-                {product.link}
-              </a>
-            </p>
+            {product.link && (
+              <p>
+                <span>Link: </span>
+                <a href={link} target="_blank">
+                  {product.link}
+                </a>
+              </p>
+            )}
             <div className="w-full flex items-center justify-center my-4">
               <NutrientLevels
                 fat={product.nutrient_levels.fat}
@@ -100,9 +103,9 @@ export default function ProductDetail({ product }: PropsType) {
             <NutitionTable nutriments={product.nutriments} />
           </div>
         </div>
-      </Cart>
-      <Cart>
-        <div className="py-8 sm:py-0">
+      </Card>
+      <Card>
+        <div className="py-8 sm:py-0 max-w-5xl">
           <h3 className="text-xl font-semibold uppercase text-center pb-8">
             ingredients
           </h3>
@@ -147,7 +150,7 @@ export default function ProductDetail({ product }: PropsType) {
             })}
           </ul>
         </div>
-      </Cart>
+      </Card>
     </div>
   );
 }
