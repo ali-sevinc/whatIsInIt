@@ -110,7 +110,7 @@ export default function ProductDetail({ product }: PropsType) {
             ingredients
           </h3>
           <ul className=" divide-amber-700 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {product.ingredients.map((item) => {
+            {product?.ingredients?.map((item) => {
               const index = item.id.indexOf(":");
               const name = item.id.substring(index + 1);
               return (
